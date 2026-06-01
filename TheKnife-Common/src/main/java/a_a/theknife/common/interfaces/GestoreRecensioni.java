@@ -2,7 +2,7 @@ package a_a.theknife.common.interfaces;
 
 import java.rmi.*;
 
-import a_a.theknife.common.models.Recensione    ;
+import a_a.theknife.common.models.Recensione;
 
 import a_a.theknife.common.exceptions.ReviewAlreadyExistsException;
 import a_a.theknife.common.exceptions.ReviewNotExistsException;
