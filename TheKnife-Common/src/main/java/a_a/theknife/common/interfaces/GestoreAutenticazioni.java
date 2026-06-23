@@ -31,16 +31,29 @@ public interface GestoreAutenticazioni extends Remote{
      * @throws RemoteException 
      * @throws <code>InvalidSessionRequestException</code>
      */
+    
+    /* Ho modificato il comportamento del "riportare l'informazione presso il db". Nello script di creazione delle tabelle del db, 
+    non esiste alcuna colonna (es. is_logged_in) per tracciare lo stato della sessione. Modificare continuamente il db per tracciare il login
+    non è ottimale, in quanto introduce colli di bottigli in operazioni I/O.
+    
+    Ho utilizzato l'infrastruttura del server (la memoria "RAM" del server tramite HashSet) come "db in memoria" per le sessioni attive sulla piattaforma.
+    */
     public void login(Utente utente) throws RemoteException, InvalidSessionRequestException;
     
     /**
      * Il metodo effettua il logout per l'utente specificato, riportando tale
      * informazione nel database. Qualora per l'utente passato come parametro non
      * sia già attiva una sessione, il metodo solleva una <code>InvalidSessionRequestException</code>.
+     * @param utente
      * @throws RemoteException 
      * @throws <code>InvalidSessionRequestException</code>
      */
-    public void logout() throws RemoteException, InvalidSessionRequestException;
+    
+    /*
+    Dato che nello script sql è stato impostato ON DELETE CASCADE su ogni chiave esterna delle tabelle del db.
+    Pertanto, eliminando il record padre nella tabella Utenti, dal database verranno eliminate a cascata tutti i record correlati (ristoranti, recensioni, preferiti)
+    */
+    public void logout(Utente utente) throws RemoteException, InvalidSessionRequestException;
     
     /**
      * Elimina TUTTE le informazioni relative all'utente, inclusi i ristoranti,
