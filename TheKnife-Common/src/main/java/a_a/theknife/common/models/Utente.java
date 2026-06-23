@@ -19,6 +19,7 @@ public class Utente implements Serializable{
     private LocalDate dataNascita;
     private String citta;
     private String nazione;
+    private String ruolo;
     
     private GestoreAutenticazioni gestoreAutenticazioni;
 
@@ -35,10 +36,11 @@ public class Utente implements Serializable{
      * @param dataNascita
      * @param citta
      * @param nazione
+     * @param ruolo
      * @throws <code>InvalidEMailException</code>
      * @throws <code>InvalidPasswordException</code>
      */
-    public Utente(String nome, String cognome, String username, String eMail, String password, LocalDate dataNascita, String citta, String nazione) throws InvalidEMailException, InvalidPasswordException{
+    public Utente(String nome, String cognome, String username, String eMail, String password, LocalDate dataNascita, String citta, String nazione, String ruolo) throws InvalidEMailException, InvalidPasswordException{
         if(!eMail.contains("@")){
             throw(new InvalidEMailException());
         }
@@ -56,6 +58,7 @@ public class Utente implements Serializable{
         this.dataNascita = dataNascita;
         this.citta = citta;
         this.nazione = nazione;
+        this.ruolo = ruolo;
     }
 
     /**
@@ -71,9 +74,10 @@ public class Utente implements Serializable{
      * @param password
      * @param dataNascita
      * @param citta
-     * @param nazione 
+     * @param nazione
+     * @param ruolo
      */
-    public Utente(int id, String nome, String cognome, String username, String eMail, String password, LocalDate dataNascita, String citta, String nazione){
+    public Utente(int id, String nome, String cognome, String username, String eMail, String password, LocalDate dataNascita, String citta, String nazione, String ruolo){
         this.id = id;
         this.nome = nome;
         this.cognome = cognome;
@@ -83,6 +87,7 @@ public class Utente implements Serializable{
         this.dataNascita = dataNascita;
         this.citta = citta;
         this.nazione = nazione;
+        this.ruolo = ruolo;
     }
 
     public int getId(){
@@ -123,13 +128,8 @@ public class Utente implements Serializable{
     public String getPassword(){
         return(this.password);
     }
-    public void setPassword(String password) throws InvalidPasswordException{
-        if(GestorePassword.validate(password)){
-            this.password = GestorePassword.hashPassword(password);
-        }
-        else{
-            throw(new InvalidPasswordException());
-        }
+    public void setPassword(String password){ 
+        this.password = password;
     }
 
     public LocalDate getDataNascita(){
@@ -151,5 +151,12 @@ public class Utente implements Serializable{
     }
     public void setNazione(String nazione){
         this.nazione = nazione;
+    }
+    
+    public String getRuolo() {
+        return(this.ruolo);
+    }
+    public void setRuolo(String ruolo) {
+        this.ruolo = ruolo;
     }
 }
