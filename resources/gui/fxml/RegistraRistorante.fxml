@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="a_a.theknife.client.controller.RegistraRistoranteController">
+   <children>
+      <HBox layoutX="28.0" layoutY="61.0" prefHeight="323.0" prefWidth="857.0" spacing="20.0">
+         <children>
+            <VBox prefHeight="323.0" prefWidth="244.0" spacing="15.0">
+               <children>
+                  <TextField fx:id="nome" prefHeight="23.0" prefWidth="250.0" promptText="Nome*" style="-fx-font-family: Georgia;" />
+                  <TextField fx:id="indirizzo" prefHeight="23.0" prefWidth="250.0" promptText="Indirizzo*" style="-fx-font-family: Georgia;" />
+                  <TextField fx:id="citta" prefHeight="23.0" prefWidth="250.0" promptText="Città*" style="-fx-font-family: Georgia;" />
+                  <TextField fx:id="nazione" prefHeight="23.0" prefWidth="250.0" promptText="Nazione*" style="-fx-font-family: Georgia;" />
+                  <TextField fx:id="paginaMichelin" prefHeight="23.0" prefWidth="250.0" promptText="Pagina Michelin" style="-fx-font-family: Georgia;" />
+                  <TextField fx:id="paginaWeb" prefHeight="23.0" prefWidth="250.0" promptText="PaginaWeb* (https://xxx)" style="-fx-font-family: Georgia;" />
+                  <CheckBox fx:id="servizioDelivery" mnemonicParsing="false" prefHeight="23.0" prefWidth="250.0" text="Disponibilità servizio delivery?">
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="stellaGreen" mnemonicParsing="false" prefHeight="23.0" prefWidth="250.0" text="Il tuo ristorante ha a cuore l'ambiente?">
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <CheckBox fx:id="prenotazioneOnline" mnemonicParsing="false" prefHeight="23.0" prefWidth="200.0" text="Supporti prenotazioni online?">
+                     <font>
+                        <Font name="Georgia" size="12.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="356.0" prefWidth="238.0" spacing="15.0">
+               <children>
+                  <ComboBox fx:id="fasciaPrezzo" prefHeight="23.0" prefWidth="250.0" promptText="Fascia di prezzo*" style="-fx-font-family: Georgia;" />
+                  <TextField fx:id="latitudine" prefHeight="23.0" prefWidth="250.0" promptText="Latitudine*" style="-fx-font-family: Georgia;" />
+                  <TextField fx:id="longitudine" prefHeight="23.0" prefWidth="250.0" promptText="Longitudine*" style="-fx-font-family: Georgia;" />
+                  <TextField fx:id="recapitoTelefonico" prefHeight="23.0" prefWidth="250.0" promptText="Recapito Telefonico* (+xxxxxxxxxxxx):" style="-fx-font-family: Georgia;" />
+                  <TextField fx:id="riconoscimento" prefHeight="23.0" prefWidth="250.0" promptText="Indicare il riconoscimento (se presente):" style="-fx-font-family: Georgia;" />
+                  <TextArea fx:id="descrizione" prefHeight="200.0" prefWidth="200.0" promptText="Dai una buona descrizione del tuo ristorante:*" wrapText="true" />
+               </children>
+            </VBox>
+            <VBox prefHeight="323.0" prefWidth="162.0" spacing="15.0">
+               <children>
+                  <VBox fx:id="tipiCucina" prefHeight="323.0" prefWidth="160.0" />
+               </children>
+            </VBox>
+            <VBox fx:id="servizi" fillWidth="false" prefHeight="323.0" prefWidth="163.0" />
+         </children>
+      </HBox>
+      <Button fx:id="btnRegistrati" layoutX="28.0" layoutY="478.0" mnemonicParsing="false" onAction="#gestisciRegistrazione" prefHeight="45.0" prefWidth="520.0" style="-fx-background-color: #007161; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5;" text="Registra un nuovo ristorante">
+         <font>
+            <Font name="Georgia Bold" size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="60.0" layoutY="14.0" text="Crea un ristorante">
+         <font>
+            <Font name="Georgia Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="3.0">
+         <image>
+            <Image url="@../../images/TheKnife%20Logo.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

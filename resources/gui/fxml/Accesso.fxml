@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="540.0" prefWidth="360.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="a_a.theknife.client.controller.AccessoController">
+   <children>
+      <AnchorPane prefHeight="540.0" prefWidth="360.0" style="-fx-background-color: #007161;">
+         <children>
+            <Label layoutX="50.0" layoutY="200.0" text="The Knife" textFill="WHITE">
+               <font>
+                  <Font name="Georgia Bold" size="48.0" />
+               </font>
+            </Label>
+            <Label layoutX="50.0" layoutY="260.0" prefWidth="260.0" text="Sistema per la ricerca di ristoranti" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ImageView layoutX="114.0" layoutY="37.0">
+               <image>
+                  <Image url="@../../images/TheKnife%20Logo.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <TabPane layoutX="360.0" prefHeight="540.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Accedi">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="100.0" layoutY="90.0" text="Bentornato!">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="130.0" text="Inserisci le tue credenziali" textFill="#666666">
+                           <font>
+                              <Font name="Georgia" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="loginUsername" layoutX="100.0" layoutY="190.0" prefHeight="40.0" prefWidth="400.0" promptText="Username" style="-fx-font-family: Georgia;" />
+                        <PasswordField fx:id="loginPassword" layoutX="100.0" layoutY="250.0" prefHeight="40.0" prefWidth="400.0" promptText="Password" style="-fx-font-family: Georgia;" />
+                        <Button fx:id="btnAccedi" layoutX="100.0" layoutY="320.0" mnemonicParsing="false" onAction="#gestisciAccesso" prefHeight="45.0" prefWidth="400.0" style="-fx-background-color: #007161; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5;" text="Accedi">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnGuest" layoutX="100.0" layoutY="410.0" mnemonicParsing="false" onAction="#gestisciGuest" prefHeight="40.0" prefWidth="400.0" style="-fx-background-color: transparent; -fx-text-fill: #007161; -fx-border-color: #007161; -fx-border-radius: 5; -fx-cursor: hand;" text="Prosegui come utente guest">
+                           <font>
+                              <Font name="Georgia" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Registrati">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="40.0" layoutY="20.0" text="Crea un account">
+                           <font>
+                              <Font name="Georgia Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="nomeReg" layoutX="40.0" layoutY="70.0" prefHeight="35.0" prefWidth="250.0" promptText="Nome*" style="-fx-font-family: Georgia;" />
+                        <TextField fx:id="cognomeReg" layoutX="310.0" layoutY="70.0" prefHeight="35.0" prefWidth="250.0" promptText="Cognome*" style="-fx-font-family: Georgia;" />
+                        <TextField fx:id="usernameReg" layoutX="40.0" layoutY="125.0" prefHeight="35.0" prefWidth="250.0" promptText="Username*" style="-fx-font-family: Georgia;" />
+                        <TextField fx:id="emailReg" layoutX="310.0" layoutY="125.0" prefHeight="35.0" prefWidth="250.0" promptText="Email*" style="-fx-font-family: Georgia;" />
+                        <PasswordField fx:id="passwordReg" layoutX="40.0" layoutY="180.0" prefHeight="35.0" prefWidth="250.0" promptText="Password*" style="-fx-font-family: Georgia;" />
+                        <DatePicker fx:id="dataNascitaReg" layoutX="310.0" layoutY="180.0" prefHeight="35.0" prefWidth="250.0" promptText="Data di nascita" style="-fx-font-family: Georgia;" />
+                        <TextField fx:id="cittaReg" layoutX="40.0" layoutY="235.0" prefHeight="35.0" prefWidth="250.0" promptText="Città*" style="-fx-font-family: Georgia;" />
+                        <TextField fx:id="nazioneReg" layoutX="310.0" layoutY="235.0" prefHeight="35.0" prefWidth="250.0" promptText="Nazione*" style="-fx-font-family: Georgia;" />
+                        <Label layoutX="40.0" layoutY="300.0" text="Seleziona il tuo ruolo:">
+                           <font>
+                              <Font name="Georgia Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="ruoloCliente" layoutX="40.0" layoutY="330.0" mnemonicParsing="false" selected="true" text="Cliente">
+                           <font>
+                              <Font name="Georgia" size="14.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="ruoli" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="ruoloRistoratore" layoutX="140.0" layoutY="330.0" mnemonicParsing="false" text="Ristoratore" toggleGroup="$ruoli">
+                           <font>
+                              <Font name="Georgia" size="14.0" />
+                           </font>
+                        </RadioButton>
+                        <Button fx:id="btnRegistrati" layoutX="40.0" layoutY="390.0" mnemonicParsing="false" onAction="#gestisciRegistrazione" prefHeight="45.0" prefWidth="520.0" style="-fx-background-color: #007161; -fx-text-fill: white; -fx-cursor: hand; -fx-background-radius: 5;" text="Registrati">
+                           <font>
+                              <Font name="Georgia Bold" size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

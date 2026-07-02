@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="540.0" minWidth="960.0" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="a_a.theknife.client.controller.ProfiloRistoratoreController">
+   <children>
+      <AnchorPane prefHeight="76.0" prefWidth="719.0" style="-fx-background-color: #007161;">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="14.0">
+               <image>
+                  <Image url="@../../images/TheKnife%20Logo.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="77.0" layoutY="17.0" text="The Knife - Profilo Ristoratore" textFill="WHITE">
+               <font>
+                  <Font name="Georgia Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label fx:id="intestazione" layoutX="35.0" layoutY="100.0" prefHeight="22.0" prefWidth="352.0" text="Profilo utente di: " textFill="#007161">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Label>
+      <VBox layoutX="25.0" layoutY="200.0" prefHeight="246.0" prefWidth="250.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="32.0" prefWidth="197.0" spacing="5.0">
+               <children>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../images/Name.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblNome" prefHeight="18.0" prefWidth="170.0" text="Nome: " textFill="#007161">
+                     <font>
+                        <Font name="Georgia" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="32.0" prefWidth="197.0" spacing="5.0">
+               <children>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../images/Name.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblCognome" prefHeight="18.0" prefWidth="170.0" text="Cognome: " textFill="#007161">
+                     <font>
+                        <Font name="Georgia" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="32.0" prefWidth="197.0" spacing="5.0">
+               <children>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../images/Username.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblUsername" prefHeight="18.0" prefWidth="170.0" text="Username:" textFill="#007161">
+                     <font>
+                        <Font name="Georgia" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="32.0" prefWidth="197.0" spacing="5.0">
+               <children>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../images/Mail.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblMail" prefHeight="18.0" prefWidth="170.0" text="Mail" textFill="#007161">
+                     <font>
+                        <Font name="Georgia" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="32.0" prefWidth="197.0" spacing="5.0">
+               <children>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../images/City.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblCitta" prefHeight="18.0" prefWidth="170.0" text="Città" textFill="#007161">
+                     <font>
+                        <Font name="Georgia" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="32.0" prefWidth="197.0" spacing="5.0">
+               <children>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../images/Nation.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblNazione" prefHeight="18.0" prefWidth="170.0" text="Nazione" textFill="#007161">
+                     <font>
+                        <Font name="Georgia" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="32.0" prefWidth="197.0" spacing="5.0">
+               <children>
+                  <ImageView>
+                     <image>
+                        <Image url="@../../images/ChefHat.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="18.0" prefWidth="170.0" text="Ristoratore" textFill="#007161">
+                     <font>
+                        <Font name="Georgia" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Label fx:id="lblNumeroRistoranti" layoutX="598.0" layoutY="228.0" prefHeight="58.0" prefWidth="313.0" text="Contenuto generato dinamicamente dal controller" textFill="#007161">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="bottoneDinamico" layoutX="598.0" layoutY="286.0" mnemonicParsing="false" onAction="#gestisciBottoneDinamico" prefHeight="50.0" prefWidth="194.0" style="-fx-background-color: #007161;" text="BottoneDinamico" textFill="WHITE">
+         <font>
+            <Font name="Georgia" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="tornaHomeRistoratore" layoutX="14.0" layoutY="500.0" mnemonicParsing="false" onAction="#tornaAHomeRistoratore" style="-fx-background-color: #ffffff; -fx-border-color: #007161;" text="Torna a homepage ristoratore" textFill="#007161" />
+   </children>
+</AnchorPane>
