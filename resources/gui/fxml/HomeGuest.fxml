@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="a_a.theknife.client.controller.HomeGuestController">
+   <top>
+      <HBox prefHeight="80.0" style="-fx-background-color: #007161;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="The Knife" textFill="WHITE">
+               <font>
+                  <Font name="Georgia Bold" size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="40.0" top="18.0" />
+               </HBox.margin>
+            </Label>
+            <Label prefWidth="169.0" text=" - modalità guest" textFill="#b2dfdb">
+               <font>
+                  <Font name="Georgia" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="28.0" />
+               </HBox.margin>
+            </Label>
+            <Region prefHeight="80.0" prefWidth="1349.0" />
+            <Button fx:id="tornaAccesso" mnemonicParsing="false" onAction="#gestisciBtnTornaAccesso" prefHeight="40.0" prefWidth="141.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 5; -fx-cursor: hand;" text="Accedi / Registrati">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="40.0" top="18.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefWidth="360.0" style="-fx-background-color: white; -fx-background: white;" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
+         <content>
+            <VBox prefWidth="345.0" style="-fx-background-color: white;">
+               <padding>
+                  <Insets bottom="80.0" left="25.0" right="25.0" top="30.0" />
+               </padding>
+               <children>
+                  <Label prefWidth="196.0" text="Ricerca avanzata">
+                     <font>
+                        <Font name="Georgia Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Separator>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <VBox prefHeight="55.0">
+                     <children>
+                        <Label text="Nome ristorante">
+                           <font>
+                              <Font name="Georgia Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="3.5" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="filtroNome" prefHeight="36.0" promptText="es. Via Di Guinceri" style="-fx-font-family: Georgia; -fx-font-size: 13; -fx-background-radius: 5;" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox prefHeight="55.0" spacing="4.0">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label text="Città">
+                           <font>
+                              <Font name="Georgia Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="filtroCitta" prefHeight="36.0" promptText="es. Livorno" style="-fx-font-family: Georgia; -fx-font-size: 13; -fx-background-radius: 5;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="55.0" spacing="4.0">
+                     <children>
+                        <Label text="Nazione">
+                           <font>
+                              <Font name="Georgia Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="filtroNazione" prefHeight="36.0" promptText="es. Italia" style="-fx-font-family: Georgia; -fx-font-size: 13; -fx-background-radius: 5;" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox prefHeight="55.0" spacing="4.0">
+                     <children>
+                        <Label text="Riconoscimento">
+                           <font>
+                              <Font name="Georgia Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="listaRiconoscimenti" prefHeight="36.0" prefWidth="310.0" promptText="Tutti" style="-fx-font-family: Georgia; -fx-font-size: 13;" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <Separator>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <VBox prefHeight="58.0" spacing="4.0">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <children>
+                        <HBox>
+                           <children>
+                              <Label text="Valutazione minima:">
+                                 <font>
+                                    <Font name="Georgia Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="numValutazione" prefHeight="16.0" text=" --" textFill="#007161">
+                                 <font>
+                                    <Font name="Georgia Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Slider fx:id="sliderValutazione" blockIncrement="0.5" majorTickUnit="1.0" max="5.0" min="0.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" value="0.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="55.0" spacing="4.0">
+                     <children>
+                        <Label text="Fascia di prezzo">
+                           <font>
+                              <Font name="Georgia Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="listaPrezzi" prefHeight="36.0" prefWidth="310.0" promptText="Tutte" style="-fx-font-family: Georgia; -fx-font-size: 13;" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <Separator>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <VBox prefHeight="93.0">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label text="Opzioni">
+                           <font>
+                              <Font name="Georgia Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="checkStellaGreen" mnemonicParsing="false" prefWidth="147.0" style="-fx-font-family: Georgia; -fx-font-size: 13;" text="Con stella green">
+                           <VBox.margin>
+                              <Insets top="8.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="checkPrenotazioneOnline" mnemonicParsing="false" style="-fx-font-family: Georgia; -fx-font-size: 13;" text="Con prenotazione online">
+                           <VBox.margin>
+                              <Insets top="8.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                        <CheckBox fx:id="checkDelivery" mnemonicParsing="false" style="-fx-font-family: Georgia; -fx-font-size: 13;" text="Con delivery">
+                           <VBox.margin>
+                              <Insets top="8.0" />
+                           </VBox.margin>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <Separator>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <VBox prefHeight="73.0" spacing="4.0">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label text="Tipi di cucina">
+                           <font>
+                              <Font name="Georgia Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Separa con vircola" textFill="#999999">
+                           <font>
+                              <Font name="Georgia" size="11.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="filtroCucina" prefHeight="36.0" promptText="es. Pizzeria, Napoletana, ..." style="-fx-font-family: Georgia; -fx-font-size: 13; -fx-background-radius: 5;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="73.0" spacing="4.0">
+                     <children>
+                        <Label text="Servizi offerti">
+                           <font>
+                              <Font name="Georgia Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label text="Separa con vircola" textFill="#999999">
+                           <font>
+                              <Font name="Georgia" size="11.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="filtroServizi" prefHeight="36.0" promptText="es. Wi-Fi, Parcheggio, ..." style="-fx-font-family: Georgia; -fx-font-size: 13; -fx-background-radius: 5;" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <Separator>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Button fx:id="btnCerca" mnemonicParsing="false" onAction="#gestisciBtnCerca" prefHeight="45.0" prefWidth="310.0" style="-fx-background-color: #007161; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Cerca">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnAzzeraFiltri" mnemonicParsing="false" onAction="#gestisciBtnAzzeraFiltri" prefHeight="38.0" prefWidth="310.0" style="-fx-background-color: transparent; -fx-text-fill: #007161; -fx-border-color: #007161; -fx-border-radius: 5; -fx-cursor: hand;" text="Azzera ricerca">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </left>
+   <center>
+      <StackPane BorderPane.alignment="CENTER">
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent; -fx-background: #f4f4f4;" vbarPolicy="ALWAYS">
+         <content>
+            <VBox spacing="30.0">
+               <children>
+                  <Label fx:id="titoloConsigliati" text="Consigliati per te">
+                     <font>
+                        <Font name="Georgia Bold" size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="sottotitoloConsigliati" text="Ecco alcuni ristoranti che potrebbero interessarti" textFill="#666666">
+                     <font>
+                        <Font name="Georgia" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <HBox fx:id="boxConsigliati" spacing="30.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label fx:id="titoloElenco" text="Tutti i ristoranti">
+                     <font>
+                        <Font name="Georgia Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="contatoreRistoranti" text="Clicca un ristorante per visualizzare i dettagli" textFill="#666666">
+                     <font>
+                        <Font name="Georgia" size="14.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="listaRistoranti" prefHeight="500.0" style="-fx-background-color: transparent; -fx-background-radius: 8;" />
+               </children>
+               <padding>
+                  <Insets bottom="40.0" left="50.0" right="50.0" top="40.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <VBox fx:id="dettagli" alignment="CENTER" managed="false" style="-fx-background-color: rgba(0,0,0,0.35);" visible="false" StackPane.alignment="CENTER">
+         <children>
+            <ScrollPane fitToWidth="true" maxHeight="700" maxWidth="850" style="-fx-background-color: white; -fx-background: white; -fx-background-radius: 12;">
+               <content>
+                  <VBox spacing="12.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 20, 0, 0, 8);">
+                     <padding>
+                        <Insets bottom="25.0" left="30.0" right="30.0" top="25.0" />
+                     </padding>
+                     <children>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label fx:id="dettaglioNome" text="Nome ristorante">
+                                 <font>
+                                    <Font name="Georgia Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Region HBox.hgrow="ALWAYS" />
+                              <Button fx:id="btnChiudiDettagli" mnemonicParsing="false" onAction="#gestisciBtnChiudi" style="-fx-background-color: #007161; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand; -fx-padding: 6 16;" text="✕ Chiudi">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Separator />
+                        <HBox spacing="40.0">
+                           <children>
+                              <VBox spacing="3.0">
+                                 <children>
+                                    <Label text="Località" textFill="#999">
+                                       <font>
+                                          <Font name="Georgia" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dettaglioLocalita" text="--">
+                                       <font>
+                                          <Font name="Georgia" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="3.0">
+                                 <children>
+                                    <Label text="Indirizzo" textFill="#999">
+                                       <font>
+                                          <Font name="Georgia" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dettaglioIndirizzo" text="--">
+                                       <font>
+                                          <Font name="Georgia" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="3.0">
+                                 <children>
+                                    <Label text="Coordinate" textFill="#999">
+                                       <font>
+                                          <Font name="Georgia" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dettaglioCoordinate" text="--">
+                                       <font>
+                                          <Font name="Georgia" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox spacing="40.0">
+                           <children>
+                              <VBox spacing="3.0">
+                                 <children>
+                                    <Label text="Fascia di prezzo" textFill="#999">
+                                       <font>
+                                          <Font name="Georgia" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dettaglioPrezzo" text="--">
+                                       <font>
+                                          <Font name="Georgia Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="3.0">
+                                 <children>
+                                    <Label text="Riconoscimento" textFill="#999">
+                                       <font>
+                                          <Font name="Georgia" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dettaglioRiconoscimento" text="--">
+                                       <font>
+                                          <Font name="Georgia Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="3.0">
+                                 <children>
+                                    <Label text="Valutazione media" textFill="#999">
+                                       <font>
+                                          <Font name="Georgia" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dettaglioValutazione" text="--" textFill="#ff9900">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox spacing="20.0">
+                           <children>
+                              <Label fx:id="dettaglioStellaGreen" style="-fx-background-color: #e8f5e9; -fx-background-radius: 5; -fx-padding: 4 10;" text="Stella green" textFill="#2e7d32">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="dettaglioPrenotazione" style="-fx-background-color: #fff3e0; -fx-background-radius: 5; -fx-padding: 4 10;" text="Prenotazione online" textFill="#e65100">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="dettaglioDelivery" style="-fx-background-color: #e3f2fd; -fx-background-radius: 5; -fx-padding: 4 10;" text="Delivery" textFill="#1565c0">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox spacing="3.0">
+                           <children>
+                              <Label text="Descrizione" textFill="#999">
+                                 <font>
+                                    <Font name="Georgia" size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="dettaglioDescrizione" text="--" wrapText="true">
+                                 <font>
+                                    <Font name="Georgia" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <HBox spacing="40.0">
+                           <children>
+                              <VBox spacing="3.0">
+                                 <children>
+                                    <Label text="Tipi di cucina" textFill="#999">
+                                       <font>
+                                          <Font name="Georgia" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dettaglioTipiCucina" text="--" wrapText="true">
+                                       <font>
+                                          <Font name="Georgia" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="3.0">
+                                 <children>
+                                    <Label text="Servizi offerti" textFill="#999">
+                                       <font>
+                                          <Font name="Georgia" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dettaglioServizi" text="--" wrapText="true">
+                                       <font>
+                                          <Font name="Georgia" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox spacing="40.0">
+                           <children>
+                              <VBox spacing="3.0">
+                                 <children>
+                                    <Label text="Telefono" textFill="#999">
+                                       <font>
+                                          <Font name="Georgia" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dettaglioTelefono" text="--">
+                                       <font>
+                                          <Font name="Georgia" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="3.0">
+                                 <children>
+                                    <Label text="Pagina web" textFill="#999">
+                                       <font>
+                                          <Font name="Georgia" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dettaglioPaginaWeb" text="--" textFill="#007161">
+                                       <font>
+                                          <Font name="Georgia" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox spacing="3.0">
+                                 <children>
+                                    <Label text="Pagina michelin" textFill="#999">
+                                       <font>
+                                          <Font name="Georgia" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="dettaglioPaginaMichelin" text="--" textFill="#007161">
+                                       <font>
+                                          <Font name="Georgia" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <Separator />
+                        <Label text="Recensioni">
+                           <font>
+                              <Font name="Georgia Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <VBox fx:id="listaRecensioni" spacing="10.0" />
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+      </StackPane>
+   </center>
+</BorderPane>
