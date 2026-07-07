@@ -65,3 +65,75 @@ CREATE TABLE Risposte(
 	testo VARCHAR(200) NOT NULL CHECK(TRIM(testo) <> ''),
 	ultima_modifica DATE NOT NULL
 );
+
+CREATE OR REPLACE FUNCTION check_proprietario_ristoratore()
+RETURNS TRIGGER AS
+$$
+BEGIN
+IF NOT EXISTS (
+SELECT *
+FROM Utenti
+WHERE id = NEW.proprietario
+AND ruolo = 'ristoratore'
+) THEN
+RAISE EXCEPTION
+'Il proprietario deve essere un utente con ruolo ristoratore';
+END IF;
+
+RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_proprietario_ristoratore
+BEFORE INSERT OR UPDATE OF proprietario
+ON Ristoranti
+FOR EACH ROW
+EXECUTE FUNCTION check_proprietario_ristoratore();
+
+CREATE OR REPLACE FUNCTION check_preferiti_cliente()
+RETURNS TRIGGER AS
+$$
+BEGIN
+IF NOT EXISTS (
+SELECT *
+FROM Utenti
+WHERE id = NEW.cliente
+AND ruolo = 'cliente'
+) THEN
+RAISE EXCEPTION
+'Solo i clienti possono avere preferiti';
+END IF;
+
+RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_preferiti_cliente
+BEFORE INSERT OR UPDATE
+ON Preferiti
+FOR EACH ROW
+EXECUTE FUNCTION check_preferiti_cliente();
+
+CREATE OR REPLACE FUNCTION check_autore_recensione()
+RETURNS TRIGGER AS
+$$
+BEGIN
+IF NOT EXISTS (
+SELECT *
+FROM Utenti
+WHERE id = NEW.autore
+AND ruolo = 'cliente'
+) THEN
+RAISE EXCEPTION
+'Solo un cliente può scrivere recensioni';
+END IF;
+
+RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_autore_recensione
+BEFORE INSERT OR UPDATE OF autore
+ON Recensioni
+FOR EACH ROW
+EXECUTE FUNCTION check_autore_recensione();
