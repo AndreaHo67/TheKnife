@@ -13,7 +13,7 @@ CREATE TABLE Utenti(
 
 CREATE TABLE Ristoranti(
 	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-	proprietario INT REFERENCES Utente(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	proprietario INT REFERENCES Utenti(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	nome VARCHAR(50) NOT NULL CHECK(TRIM(nome) <> ''),
 	indirizzo VARCHAR(100) NOT NULL CHECK(TRIM(indirizzo) <> ''),
 	citta VARCHAR(20) NOT NULL CHECK(TRIM(citta) <> ''),
@@ -22,9 +22,9 @@ CREATE TABLE Ristoranti(
 	latitudine DECIMAL(9,7) NOT NULL,
 	longitudine DECIMAL(10, 7) NOT NULL,
 	recapito_telefonico VARCHAR(20) UNIQUE NOT NULL CHECK(TRIM(recapito_telefonico) <> ''),
-	pagina_michelin VARCHAR(100) UNIQUE NOT NULL CHECK(pagina_michelin LIKE('https://guide.michelin.com/%')),
+	pagina_michelin VARCHAR(100) UNIQUE,
 	pagina_web VARCHAR(100) UNIQUE NOT NULL CHECK(pagina_web LIKE('https://%')),
-	riconoscimento VARCHAR(30) NOT NULL CHECK(riconoscimento IN ('1 Star', '2 Stars', '3 Stars', 'Selected Restaurants', 'Bib Gourmand')),
+	riconoscimento VARCHAR(30) NOT NULL,
 	stella_green BOOLEAN NOT NULL,
 	descrizione TEXT NOT NULL CHECK(TRIM(descrizione) <> ''),
 	prenotazione_online BOOLEAN NOT NULL,
@@ -32,20 +32,20 @@ CREATE TABLE Ristoranti(
 );
 
 CREATE TABLE ProposteCulinarie(
-	ristorante INT REFERENCES Ristorante(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	ristorante INT REFERENCES Ristoranti(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	tipo_cucina VARCHAR(40) NOT NULL CHECK(TRIM(tipo_cucina) <> ''),
 	PRIMARY KEY(ristorante, tipo_cucina)
 );
 
 CREATE TABLE ServiziOfferti(
-	ristorante INT REFERENCES Ristorante(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	ristorante INT REFERENCES Ristoranti(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	servizio VARCHAR(40) NOT NULL CHECK(TRIM(servizio) <> ''),
 	PRIMARY KEY(servizio, ristorante)
 );
 
 CREATE TABLE Preferiti(
-	cliente INT REFERENCES Utente(id) ON DELETE CASCADE ON UPDATE CASCADE,
-	ristorante INT REFERENCES Ristorante(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	cliente INT REFERENCES Utenti(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	ristorante INT REFERENCES Ristoranti(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	PRIMARY KEY(cliente, ristorante)
 );
 
@@ -54,14 +54,14 @@ CREATE TABLE Recensioni(
 	valutazione INT NOT NULL CHECK(valutazione BETWEEN 1 AND 5),
 	testo VARCHAR(200) NOT NULL CHECK(TRIM(testo) <> ''),
 	ultima_modifica DATE NOT NULL,
-	autore INT REFERENCES Utente(id) ON DELETE CASCADE ON UPDATE CASCADE,
-	ristorante INT REFERENCES Ristorante(id) ON DELETE CASCADE ON UPDATE CASCADE
+	autore INT REFERENCES Utenti(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	ristorante INT REFERENCES Ristoranti(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Risposte(
 	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-	recensione INT REFERENCES Recensione(id) ON DELETE CASCADE ON UPDATE CASCADE,
-	autore INT REFERENCES Utente(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	recensione INT REFERENCES Recensioni(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	autore INT REFERENCES Utenti(id) ON DELETE CASCADE ON UPDATE CASCADE,
 	testo VARCHAR(200) NOT NULL CHECK(TRIM(testo) <> ''),
 	ultima_modifica DATE NOT NULL
 );
